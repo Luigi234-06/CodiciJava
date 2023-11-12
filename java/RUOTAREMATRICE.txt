@@ -1,0 +1,59 @@
+package Zone;
+
+import java.util.Scanner;
+
+
+public class Luigi {
+	
+	public static void caricamatrice(int m[][],int r,int c,Scanner sc) {
+		System.out.println("Carica la tua matrice : ");
+		for(int i = 0;i<r;i++) {
+			for(int j = 0 ; j<c;j++) {
+				m[i][j] = sc.nextInt();
+			}
+		}
+	}
+	
+	public static void vedimatrice(int m[][],int r,int c) {
+		System.out.println("Visualizza la matrice creata : ");
+		for(int i = 0;i<r;i++) {
+			System.out.println();
+			for(int j = 0 ; j<c;j++) {
+				System.out.print(m[i][j] + " ");
+			}
+		}
+	}
+
+	public static void ruotamatrice(int m[][],int r,int c) {
+		System.out.println();
+		System.out.println(" Visualizza la matrice ruotata di 90 gradi in senso orario : ");
+		int i, j =0;
+		while(j<=r) {
+			 i=r-1;
+			while(i>=0) {
+				System.out.print(m[i][j] + " ");
+				i--;
+			}
+		j++;
+		System.out.println();
+		}
+			
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("inserisci la dimensione delle righe della matrice");
+		int r = sc.nextInt();
+		System.out.println("inserisci la dimensione delle colonne della matrice");
+		int c = sc.nextInt();
+	
+		int[][] matrix = new int [r][c];
+	
+		caricamatrice(matrix,r,c,sc);
+		
+		vedimatrice(matrix,r,c);
+	
+		ruotamatrice(matrix,r,c);
+	}
+}

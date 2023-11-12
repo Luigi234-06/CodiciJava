@@ -1,0 +1,45 @@
+PARCHEGGI DI SCAMBIO:
+https://dati.comune.roma.it/catalog/dataset/baee58ee-d3b5-4d40-a5b2-87f5875ef167/resource/2c9a14a9-d859-4f0d-a3c2-865ef369a615/download/parcheggi_scambio.csv
+
+PARCOMETRI:
+https://dati.comune.roma.it/catalog/dataset/b32b19b1-26a4-47e8-98f7-75dcf3ab733b/resource/2aa2976b-6f54-4b61-8a31-588d80fe5d5d/download/parcometri.csv
+
+STRISCE BLU : 
+https://dati.comune.roma.it/catalog/dataset/6b48fdc5-fa88-41bd-92b9-47588e26f0df/resource/709d9d71-512a-4aa2-81ca-2b6064d50102/download/strisce_blu.csv
+
+https://dati.comune.roma.it/catalog/dataset/6b48fdc5-fa88-41bd-92b9-47588e26f0df/resource/13982248-78ec-43b0-be22-3d0e430ef1b7/download/strisce_blu.csv
+
+
+CODICE PER PRENDERE E VISUALIZZARE I DATASET DAL SITO OPEN DATA DEL COMUNE DI ROMA:
+
+package Zone;
+
+import java.util.Scanner;
+import java.net.URL;
+import java.io.File;
+
+public class Luigi {
+
+	public static void main(String[] args) {
+			
+	        String parcheggio;
+	        
+	        try{
+	        URL parcheggio_scambio = new URL("https://dati.comune.roma.it/catalog/dataset/baee58ee-d3b5-4d40-a5b2-87f5875ef167/resource/2c9a14a9-d859-4f0d-a3c2-865ef369a615/download/parcheggi_scambio.csv");
+	       
+	        
+	        Scanner sc = new Scanner(parcheggio_scambio.openStream());
+	        
+	        while(sc.hasNextLine()) {
+	        	parcheggio = sc.nextLine();
+	        	System.out.println(parcheggio);
+	        }
+	        
+	           
+	        }catch(Exception ex){
+	            ex.printStackTrace();
+	        }
+	}
+
+}
+

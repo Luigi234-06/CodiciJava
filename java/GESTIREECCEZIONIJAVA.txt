@@ -1,0 +1,7 @@
+try {
+    // Codice che può generare un'eccezione
+} catch (Exception e) {
+    // Gestione dell'eccezione
+} finally {
+    // Codice da eseguire sempre, ad esempio la chiusura di risorse
+}

@@ -1,0 +1,192 @@
+                                                                       ESERCIZIARIO DORE:
+
+ESERCIZIO 38/39 SEQUENZA:
+La paga di un operaio è di 15,00 Euro all'ora. Sulla stessa paga viene effettuata una trattenuta pari al
+27%. Conoscendo il numero delle ore lavorative svolte (N), calcolare la paga netta.
+39. Risolvere il problema precedente nell'ipotesi che la paga oraria non sia una costante, ma una
+variabile, e sia acquisita dall'esterno. 
+
+
+import java.util.Scanner;
+
+ class Luigi{
+
+    public static void main(String[] args){
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Inserisci la paga oraria : ");
+            int pagaOraria = sc.nextInt();
+
+            System.out.println("Quante ore ha svolto ? ");
+            int oreSvolte = sc.nextInt();
+
+            int pagaTot_lorda = pagaOraria * oreSvolte;
+
+            double appoggio = (pagaTot_lorda * 27) / 100;
+
+            double pagaTot_netta = pagaTot_lorda - appoggio ;
+
+            System.out.println("La paga mensile netta di un'operaio e' di " + pagaTot_netta + " netti");
+
+    }
+}
+
+
+ESERCIZIO 75 SEQUENZA:
+Giovanni aveva piantato uno strano seme. Il primo
+anno il seme aveva prodotto una piantina con 1
+solo ramo. Il secondo anno l'estremità del ramo
+aveva dato origine a due altri rami, la piantina così
+aveva 3 rami. Così succede negli anni successivi,
+ogni estremità dà origine a due rami. Gli anni
+passano...
+Alla fine del dodicesimo anno quanti rami avrà la
+misteriosa pianta?
+ 
+
+import java.util.Scanner;
+
+ class Luigi{
+
+    public static void main(String[] args){
+            int acc = 1;
+
+            System.out.println("Per quanti anni vuoi sapere l'incremento di ogni ramo dell'albero ? ");
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+
+            System.out.println("il primo anno ha 1 ramo(rappresenta il tronco)");
+
+            for(int c = 2 ; c <= n ; c++){
+                acc=(acc*2) + 1;
+                System.out.println("anno : " + c + " ha " + acc + " rami");
+            }
+
+    }
+}
+
+
+ESERCIZIO 106 SELEZIONE : 
+. Un bancomat soddisfa una richiesta di prelievo di una somma di denaro adottando la seguente
+strategia:
+? Emette fin che può banconote da 50 (ossia, emette banconote da 50 fin tanto che il totale non
+supera la somma richiesta).
+? Quando ha terminato con le banconote da 50, emette fin che può banconote da 20.
+Ad esempio, se la somma richiesta è 190, verranno emesse 3 banconote da 50 e 2 da 20.
+Si noti che non tutte le richieste possono essere soddisfatte. Ad esempio, se la somma richiesta è 180,
+vengono emesse 3 banconote da 50 e una da 20, per un totale di 170 euro.
+Scrivere un programma che chiede all'utente di inserire la somma richiesta (un intero), calcola quante
+banconote da 50 e 20 verranno emesse e il totale corrispondente ai soldi emessi.
+
+
+import java.util.Scanner;
+
+ class luigi {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Inserisci la somma richiesta: ");
+        int importo = sc.nextInt();
+
+        int b50 = 0;
+        int b20 = 0;
+
+        while (importo >= 50) {
+            b50++;
+            importo -= 50;
+        }
+
+        while (importo >= 20) {
+            b20++;
+            importo -= 20;
+        }
+
+        int totale = (b50 * 50) + (b20 * 20);
+
+        if (totale < importo) {
+            System.out.println("La somma richiesta non può essere completamente soddisfatta.");
+        } else {
+            System.out.println("Banconote da 50: " + b50);
+            System.out.println("Banconote da 20: " + b20);
+            System.out.println("Totale corrispondente: " + totale + " euro");
+        }
+
+    }
+}
+
+
+ESERCIZIO 25 VETTORI : 
+Si leggano dall'esterno N numeri reali e si memorizzino in un vettore. Verificare che il vettore sia
+ordinato nel seguente modo:
+? il primo numero sia maggiore di tutti gli altri;
+? il secondo numero sia minore di quelli che seguono;
+? il terzo numero sia maggiore di quelli che seguono;
+? il quarto numero sia minore di quelli che seguono e così via con lo stesso criterio.
+Se il vettore non è ordinato metterlo in ordine.
+
+
+import java.util.Scanner;
+ 
+ class luigi {
+
+    static void caricavet(double v[], int n,Scanner sc){
+
+            for(int i = 0 ; i < n ; i++){
+                 v[i] = sc.nextDouble(); 
+            }
+    }
+
+    static void stampavet(double v[], int n){
+            for(int i = 0 ; i < n ; i++){
+                System.out.print(v[i] + " "); 
+            }
+    }
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Quanti numeri vuoi inserire ? ");
+        int n = sc.nextInt();
+        double vet[] = new double[n];
+        
+        caricavet(vet,n,sc);
+
+        boolean ordinato = true;
+
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                
+                if (vet[i] <= vet[i + 1]) {
+                    ordinato = false;
+                    
+                }
+            } else {
+                
+                if (i < n - 1 && vet[i] >= vet[i + 1]) {
+                    ordinato = false;
+                    
+                }
+            }
+        }
+
+        if (ordinato == true) {
+            System.out.println("Il vettore e' ordinato secondo il criterio specificato.");
+        } else {
+            System.out.println("Il vettore non e' ordinato secondo il criterio specificato.");
+
+             for (int i = 0; i < n - 1; i++) {
+                if ((i % 2 == 0 && vet[i] < vet[i + 1]) || (i % 2 != 0 && vet[i] > vet[i + 1])) {
+                    
+                    double temp = vet[i];
+                    vet[i] = vet[i + 1];
+                    vet[i + 1] = temp;
+                
+                }
+            }
+            System.out.println("Vettore ordinato : ");
+            stampavet(vet,n);
+        }
+
+   
+    }
+}

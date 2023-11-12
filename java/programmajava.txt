@@ -1,0 +1,77 @@
+Traccia:DATO UN VETTORE DI N ELEMENTI,VERIFICARE SE IN VALORE PRESO IN INPUT E’ PRESENTE AL SUO INTERNO;SE C’E’ CONTARE QUANTE VOLTE COMPARE E DARE UN MESSAGGIO DI USCITA IN CASO NON CI FOSSE.
+
+CON NUMERI PRESI DA INPUT:
+
+import java.util.Scanner;
+
+class numeri {
+    public static void main(String[] args) {
+        int c=0;
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Quanti numeri vuoi inserire ? ");
+        int n = sc.nextInt();
+        
+        
+        int[] v = new int[n];
+        for(int i=0;i<n;i++){
+            System.out.println("Inserisci un numero : ");
+            v[i]=sc.nextInt();
+          
+        }
+        
+        System.out.println("inserisci il numero da controllare : ");
+        int numeroControllo = sc.nextInt();
+       
+        for(int i=0;i<n;i++){
+            if(v[i]==numeroControllo){
+                c++;
+            }
+        }
+        if(c==0){
+            System.out.println("il numero inserito non e' presente all'interno dell'array");
+        }
+        else{
+            System.out.println("il numero inserito e' presente " + c + "volte");
+        }
+    }
+}
+
+CON NUMERI CASUALI:
+
+import java.util.Scanner;
+import java.util.Random;
+
+class numeri {
+    public static void main(String[] args) {
+        int c=0;
+        Scanner sc = new Scanner(System.in);
+        Random r = new Random();
+        
+        System.out.println("Quanti numeri vuoi inserire ? ");
+        int n = sc.nextInt();
+     
+        
+        int[] v = new int[n];
+        for(int i = 0 ; i<n ; i++){
+            System.out.println("Inserisci un numero : ");
+            v[i] = r.nextInt(10);
+         
+        }
+        
+        System.out.println("inserisci il numero da controllare : ");
+        int numeroControllo = sc.nextInt();
+  
+        for(int i = 0; i<n ; i++){
+            if(v[i] == numeroControllo){
+                c++;
+            }
+        }
+        if(c == 0){
+            System.out.println("il numero inserito non e' presente all'interno dell'array");
+        }
+        else{
+            System.out.println("il numero inserito e' presente " + c + "volte");
+        }
+    }
+}

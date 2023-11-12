@@ -1,0 +1,266 @@
+/*input e output con java
+*per l'input bisogna importare la libreria e posizionare il cursore
+mentre l'output ш molto pi∙ semplice,come in c++ basta digitare solo una funzione giр impostata.*/
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class corsoJavabase {
+
+а а public static void main(String[] args) {
+а а а а 
+а а а а System.out.print("Benvenuti ");//istruzione di output,equivale al "cout" in c++.
+а а а а System.out.println("a tutti!");// "ln" oppure "/n" creano una nuova riga andando a capo.
+
+а а а а Scanner scanner = new Scanner(System.in);//creazione oggetto "scanner".
+а а а а //istruzioni di input.
+а а а а System.out.println("Quale ш il tuo nome ?");
+а а а а String nome = scanner.nextLine();//con questa funzione si crea una prossima riga e va messa direttamente solo se cьш una stringa,rappresenta il dato scritto dall'utente.
+
+а а а а System.out.println("Quale ш il tuo cognome ?");
+а а а а String cognome = scanner.nextLine();
+
+а а а а System.out.println("Quale ш la tua etр ?");
+а а а а int eta = scanner.nextInt();//dipende dal tipo di dato,ma poi bisogna comunque scrivere la funzione che crea la prossima riga.
+а а а а scanner.nextLine();
+
+а а а а System.out.println("In che cittр vivi ?");
+а а а а String citta = scanner.nextLine();
+
+а а а а System.out.println("Ciao "+ nome + " "+ cognome);
+а а а а System.out.println("Hai "+ eta + " anni");
+а а а а System.out.println("Vivi a "+ citta);
+
+а а а а //classe Math per operazioni pi∙ complesse :
+а а а а System.out.println(Math.PI);
+а а а а System.out.println(Math.abs(-9));
+а а а а System.out.println(Math.min(2,7));//tra due numeri
+а а а а System.out.println(Math.max(2,7));//tra due numeri
+а а а а System.out.println(Math.sqrt(64));
+а а а а System.out.println(Math.pow(2,3));
+
+а а а а System.out.println(11==10);//comparazione:da come risposta un risultato booleano(true/false).
+
+а а а а //selezione,condizioni con IF
+а а а а //IF
+а а а а boolean online=true;
+а а а а if(online){//true
+а а а а а а System.out.println("ш online");
+а а а а }
+а а а а //oppure false,con il costrutto "else"(non ci va nessuna condizione).
+а а а а else{
+а а а а а а System.out.println("non ш online");
+а а а а }
+а а а а //quando la stessa condizione va verificata pi∙ volte si usa il costrutto "else if"(ci possiamo rimettere le condizioni).
+а а а а String n = "marco";
+
+а а а а if(n == "marco"){
+а а а а а а System.out.println("ш marco");
+а а а а }
+а а а а else if(n == "luca"){
+а а а а а а System.out.println("ш luca");
+а а а а }
+а а а а else{
+а а а а а а System.out.println(" ш qualcun altro");
+а а а а }
+а а а а /*IF annidati(if dentro altri if),li usiamo se abbiamo pi∙ condizioni legate una con l'altra e abbiamo bisogno di step separati,
+а а а а *altrimenti possiamo usare i connettivi logici se non abbiamo bisogno di step separati.*/
+а а а а int num = 4;
+а а а а if(num<10){
+а а а а а а System.out.println("ш minore di 10");
+а а а а а а if(num % 2 == 0){
+а а а а а а а а System.out.println("ш pari");
+а а а а а а }else{
+а а а а а а а а System.out.println("ш dispari");
+а а а а а а }
+а а а а }else{
+а а а а а а System.out.println("ш maggiore di 10");
+а а а а }
+а а а а //oppure usiamo i connettivi logici
+а а а а if(num < 10 && num % 2 == 0){
+а а а а а а System.out.println("il numero ш minore di 10 ed ш pari");
+а а а а }
+а а а а //ternary operator,ш un modo abbreviato di scrivere una IF 
+а а а а String x = а3 > 10 ? "ciao" : "buongiorno";
+а а а а System.out.println(x);
+
+а а а а //costrutto switch,al posto di usare tante IF innescate una con l'altra
+а а а а String nome2 = "luca";
+а а а а switch(nome2){
+а а а а а а case "luca":
+а а а а а а а а System.out.println("ciao luca ");
+а а а а а а а а break;
+а а а а а а case "marco":
+а а а а а а а а System.out.println("ciao marco ");
+а а а а а а а а break;
+а а а а а а case "edoardo":
+а а а а а а а а System.out.println("ciao edoardo ");
+а а а а а а а а break;
+а а а а а а default://se non ш nessuna delle casistiche appena elencate 
+а а а а а а а а System.out.println("ciao chiunque tu sia");
+а а а а }
+а а а а 
+а а а а //CICLI ITERATIVI(while,do-while e for):servono per ripetere,finchш la condizione ш verificata,determinate righe di codice.
+а а а а //WHILE
+а а а а int i=0;
+а а а а while(i<5){
+а а а а а а System.out.println(i);
+а а а а а а i++;
+а а а а }
+а а //DO-WHILE:il codice viene eseguito almeno una volta
+а а а а do{
+а а а а а а System.out.println(i);
+а а а а а а i++;
+а а а а }while(i<5);
+а а //FOR:ciclo di iterazione enumerativa,si usa quando sappiamo quanti sono i cicli massimi da fare
+а а а а for(i=0;i<5;i++){
+а а а а а а System.out.println(i);
+а а а а }
+а а а а //versione differente della FOR:foreach,si usa con gli array
+а а а а int [] numeri = {10,20,30,40,50};
+а а а а for(int numero : numeri){
+а а а а а а System.out.println(numero);
+а а а а }
+
+а а а а //break:stoppa il codice,lo rompe.
+а а а а //continue:stoppa il codice solo dove lo vogliamo noi,e sicuramente sarр la condizione per cui si ш verificato.
+
+а а а а //GLI ARRAY MONODIMENSIONALI "vettori"
+а а а а int array[]; а//dichiarare array
+а а а а int[] array1; //dichiarare array
+а а а а int[] numbers = new int[3];//inizializzare un array
+а а а а int[] number = {1,2,3,4};//inizializzazione e assegnazione valori
+а а а а //usando la funzione lenght(numeri.lenght) recupero la lunghezza del mio array 
+
+а а а а //GLI ARRAY MULTIDIMENSIONALI 2D "matrici"
+а а а а String [][] classi = new String[3][3];//dichiarazione e inizializzazione
+а а а а //oppure:
+а а а а String[][] classis = {
+а а а а а а а а а а а а а а {"Luca","Giovanni","Marco"},
+а а а а а а а а а а а а а а {"Anna","Pasquale","Luigi"},
+а а а а а а а а а а а а а а {"ludo","enzo","enza"}
+а а а а а а а а а а а а а };
+а а а а //visualizzazione con il "for" normale
+а а а а for(int classe=0;classe < 3;classe++){
+а а а а а а System.out.println();
+а а а а а а for(int studente=0;studente < 3;studente++){
+а а а а а а а а System.out.println(classis[classe][studente] + " ");
+а а а а а а }
+а а а а }
+а а а а //con il foreach:
+а а а а 
+а а а а for(String classe : classi){ а а//ERRORE RIGUARDARE
+а а а а а а System.out.println();
+а а а а а а for(String studente : classe){
+а а а а а а а а System.out.print(studente + " ");
+а а а а а а }
+а а а а }
+
+а а а а /*METODI(funzioni) DELLE STRINGHE 
+а а а а *String nome = "Leonardo";
+
+а а а а *1.equals():da come risultato un booleano,ci dice se una stringa ш uguale oppure no ad un'altra.
+а а а а *boolean risultato = nome.equals("Leonardo");->da come risultato true(Leonardo!=leonardo:case sensitive);
+
+а а а а *2.equalsIgnoreCase():uguale alla prima ma non si basa sulla tipologia case sensitive(Leonardo=leonardo);
+
+а а а а *3.lenght():mostra la lunghezza di una stringa("Leonardo"->8);
+а а а а *int risultato=nome.lenght();->da come risultato 8;
+
+а а а а *4.charAt():ci ritorna il carattere in una specifica posizione dell'array di stringhe.
+а а а а *char risultato=nome.charAt(7);da come risultato 'o';
+а
+а а а а *5.indexOf():ш l'esatto contrario,ci dice un carattere in che posizione si trova.
+а а а а *int risultato=nome.indexOf("a");->da come risultato 4.
+
+а а а а *6.isEmpty():ci dice se la stringa che abbiamo ш vuota oppure no.
+а а а а *boolean risultato=nome.isEmpty();-> da come risultato "false".
+
+а а а а *7.toUpperCase():da come risultato la stringa di partenza con un diverso case(tutto maiuscolo).
+а а а а *String risultato=nome.toUpperCase();->=LEONARDO.
+
+а а а а *8.toLowerCase():uguale al precedente,ma il case ш invertito(tutto minuscolo).
+а а а а *String risultato=nome.toLowerCase();->=leonardo.
+
+а а а а *9.trim():ci permette di togliere gli spazi avanti e indietro ad una stringa e ritorna sempre una stringa.
+а а а а *String nome=" а а а Leonardo а а а а";
+а а а а *String risultato=nome.trim;->"Leonardo";
+
+а а а а *10.replace():torna una stringa,sostituisce un carattere della stringa con uno nuovo.
+а а а а *String risultato=nome.replace('o','w');->ho sostituito la 'o' con la 'w'->="Lewnardw";*/
+
+а а //Wrapper Class:ci permettono di trasformare i tipi di dato primitivi in reference(sono pi∙ lenti ma vengono associate a dei metodi),
+а а //anche se il s.o,grazie ad alcune proprietр di java,alla fine li intende in modo uguale.Non sono nient'altro che primitive che vengono
+а а //impacchettate come reference(per subire dei vantaggi),ma poi alla fine vengono spacchettate di nuovo come primitive.
+а а //boolean->Boolean:sono gli stessi valori gestiti da due tipi di dato diversi
+а а //int->Integer
+а а //char->Character
+а а //double->Double
+
+а а //ARRAY LIST:sono degli array ridimensionabili,a cui possiamo sia aggiungere che togliere celle,ma accettano solo reference.
+а а //aggiungere elementi:add();
+а а //mandare a schermo elementi:get();
+а а //modificare elementi:set();
+а а //rimuovere elementi:remove();
+а а //eliminare tutti gli elementi:clear();
+а а 
+а а //Vettori:
+а а ArrayList<String> persone = new ArrayList<String>();//creare la lista
+а а persone.add("Luca");
+а а persone.add("Marco");
+а а persone.add("Anna");
+а а persone.set(2,"Paola");
+а а persone.remove(0);
+а а persone.clear();
+а а for(int a=0;a<persone.size();a++){//size():becca la dimensione dell'arraylist
+а а а а System.out.println(persone.get(a));
+а а }
+
+а а //Matrici(arrayList di arrayList):
+а а ArrayList<ArrayList<String>> classiss = new ArrayList<String>(); //ERRORE RIGUARDARE
+а а 
+а а ArrayList<String> classe1 = new ArrayList<String>();
+а а classe1.add("Luca");
+а а classe1.add("Marco");
+а а 
+а а ArrayList<String> classe2 = new ArrayList<String>();
+а а classe2.add("anna");
+а а classe2.add("orazio");//creazione di 2 arrayList monodimensionali
+а а 
+а а classiss.add(classe1);
+а а classiss.add(classe2);
+
+а а for(i=0;i<classiss.size();i++){
+а а а а System.out.println();
+а а а а for(int j=0;j<classiss.get(i).size();j++){
+а а а а а а System.out.print(classiss.get(i).get(j) + " ");
+а а а а }
+а а }
+
+а а //METODI=FUNZIONI scritte nelle classi(dato che java ш un linguaggio orientato agli oggetti)
+а а //Blocchi di codice che possiamo richiamare(nel main) quando ci servono che svolgono un determinato compito
+а а //se la funzione ш nel main : 
+а а //static void rrrrrr(){};lo static riprende il main(static void main());
+а а //richiami delle funzioni overloaded :
+а а int doppionInt = addizione(2,3);
+а а int triploInt = addizione(3,2,1);
+а а double doppioDouble = addizione(3.2,7.3);
+а а System.out.print(doppioInt);
+а а }
+а а //OVERLOADED METHODS:metodi con lo stesso nome ma usati in modo diverso,cioш:stesso nome ma con parametri diversi,sono tipo le wrapper classes
+а а static int addizione (int a,int b){
+а а а а int risultato=a+b;
+а а а а return risultato;
+а а }
+а а static int addizione (int a,int b,int c){//overloaded(int c)
+а а а а int risultato=a+b+c;
+а а а а return risultato;
+а а }
+а а static double addizione (double a,double b){
+а а а а int risultato=a+b;
+а а а а return risultato;
+а а } а 
+
+}
+
+
